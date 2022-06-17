@@ -10,12 +10,7 @@
     <packaging>jar</packaging>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-hdfs -->
-        <dependency>
-            <groupId>org.apache.hadoop</groupId>
-            <artifactId>hadoop-hdfs</artifactId>
-            <version>3.2.1</version>
-            <scope>test</scope>
-        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
         <dependency>
@@ -29,7 +24,7 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_2.11</artifactId>
             <version>2.2.0</version>
-            <scope>provided</scope>
+
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-streaming -->
@@ -37,7 +32,7 @@
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-streaming_2.11</artifactId>
             <version>2.2.0</version>
-            <scope>provided</scope>
+
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.scala-lang/scala-library -->
@@ -46,6 +41,9 @@
             <artifactId>scala-library</artifactId>
             <version>2.11.8</version>
         </dependency>
+
+
+
 
 
 
