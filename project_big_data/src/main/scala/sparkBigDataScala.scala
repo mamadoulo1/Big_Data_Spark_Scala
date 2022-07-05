@@ -144,6 +144,17 @@ object sparkBigDataScala {
          col("ventes_dep")
 
        )
+     df_join_orders.createOrReplaceTempView("orders")
+     df_join_orders.withColumn("total_amount", round(col("numunits")* col("totalprice"), 2))
+       .groupBy("state","city")
+       .sum("total_amount").alias("commandes_totales")
+
+     session_s.sql("select state, city , sum(round(numunits* totalprice), 2)) as commandes_totales from orders group by state, city").show()
+
+
+
+
+
      //df_join_windon.repartition(1).write.mode(SaveMode.Overwrite).option("header", "true").csv("C:\\Users\\GZXZ4115\\Documents\\Juvenal Spark\\Fichiers sources\\sources de données\\Ecriture")
 def spark_hdfs(): Unit={
   val config_fs = SessionSpark(true).sparkContext.hadoopConfiguration
@@ -308,7 +319,7 @@ def spark_hdfs(): Unit={
       ss = SparkSession.builder
           .master("local[*]")
           .config("spark.sql.crossJoin.enabled", "true")
-          // .enableHiveSupport()
+          //.enableHiveSupport()
           .getOrCreate()
     } else {
       ss = SparkSession.builder().appName("Mon application Spark")
